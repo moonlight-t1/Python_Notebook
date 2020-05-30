@@ -1,0 +1,50 @@
+<div class="messages"></div>
+<form>
+  <input type="text" class="nickname" />
+  <input tpye="text" class="message" />
+  <input type="submit" value="전송" />
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javascript">
+  // 소켓을 주소에 연결
+  var socket = io.connect("http://" + document.domain + ":" + location.port);
+
+  // connect 이벤트가 발생하면 함수 function을 실행한다.
+  socket.on("connect", function() {
+    socket.emit("connected"); // 소켓에 connected를 send(emit) 한다
+
+    // form에 접근
+    // submit 이벤트가 발생하면 함수 호출
+    // submit은 이벤트가 인자로 같이 넘어간다
+    var form = $("form").on("submit", function(e) {
+      e.preventDefault(); // 페이지 새로고침 방지
+      var nickname = $("input.nickname").val(); // nickname 클래스인 input의 값을 가져온다
+      var message = $("input.message").val();
+
+      // 서버에 값을 보낸다(json형태
+      socket.emit("chat", {
+        nickname: nickname,
+        message: message
+      });
+      
+      // 입력창 초기화
+      $("input.message")
+        .val("")
+        .focus();
+    });
+  });
+
+  // response를 받으면 함수 실행
+  // div.messages 태그에 append 해준다
+  socket.on("response", function(msg) {
+    $("div.messages").append(
+      "<div><b style='color:blue'>" +
+        msg.nickname +
+        "</b> " +
+        msg.message +
+        "</div>"
+    );
+  });
+</script>

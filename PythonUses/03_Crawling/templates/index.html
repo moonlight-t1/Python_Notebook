@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>토렌트 검색</title>
+  </head>
+  <body>
+    <form name="form" method="POST" action="/">
+      <input type="text" name="keyword" value="" />
+      <input type="submit" value="검색" />
+    </form>
+    {% if magnet|length > 0 %} {% for m in magnets %}
+    <li><a href="{{m.magnet}}">{{m.title}}</a></li>
+    {% endfor %} {% else %}
+    <p>검색 결과가 없습니다.</p>
+    {% endif %}
+  </body>
+</html>
