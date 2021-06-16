@@ -1,3 +1,5 @@
+# 심사 문제
+
 age = int(input())
 balance = 9000
 
@@ -9,3 +11,4 @@ else:
     balance -= 650
 
 print(balance)
+
