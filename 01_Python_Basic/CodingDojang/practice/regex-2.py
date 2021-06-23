@@ -70,7 +70,7 @@ print(re.match("[a-zA-Z0-9\s]+", "Hello 1234"))  # \s로 공백 표현
 print()
 
 ## 같은 정규 표현식 패턴을 자주 사용할 때 - compile
-p = re.compile("[0-9]+")
+p = re.compile("[0-9]+")  # 정규표현식 패턴을 객체로 만들어준다.
 print(p.match("1234"))
 print(p.search("hello"))
 

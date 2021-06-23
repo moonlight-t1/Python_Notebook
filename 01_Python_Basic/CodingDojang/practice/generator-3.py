@@ -12,14 +12,16 @@ def prime_number_generator(start, stop):
         n += 1
 
 
-# def prime_number_generator(start, stop):
-#     for n in range(start, stop):
-#         is_prime = True
-#         for i in range(2, n):
-#             if n % i == 0:
-#                 is_prime = False
-#         if is_prime == True:
-#             yield n
+## 혹은 다음과 같이 만들 수 있다.
+def prime_number_generator2(start, stop):
+    for n in range(start, stop):
+        is_prime = True
+        for i in range(2, n):
+            if n % i == 0:
+                is_prime = False
+        if is_prime == True:
+            yield n
+
 
 start, stop = map(int, input().split())
 

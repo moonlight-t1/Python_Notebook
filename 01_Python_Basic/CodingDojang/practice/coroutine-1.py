@@ -1,4 +1,4 @@
-# ## 코루틴에 값 보내기
+## 코루틴에 값 보내기
 # def number_coroutine():
 #     while True:  # 코루틴을 계속 유지하기 위해 무한 루프 사용
 #         x = yield  # 코루틴 바깥에서 값을 받아온다
@@ -13,7 +13,8 @@
 # co.send(2)  # 코루틴에 숫자 1을 보낸다
 # co.send(3)  # 코루틴에 숫자 1을 보낸다
 
-# ## 코루틴에서 바깥으로 값을 전달하기
+
+## 코루틴에서 바깥으로 값을 전달하기
 # def sum_coroutine():
 #     total = 0  # 바깥으로 보낼값
 #     while True:
@@ -34,7 +35,7 @@
 #         while True:
 #             x = yield
 #             print(x, end=" ")
-#     except GeneratorExit:
+#     except GeneratorExit: # 코루틴이 종료 될 때 GeneratorExit 예외 발생
 #         print()
 #         print("Finished Coroutine")
 
@@ -45,7 +46,7 @@
 # for i in range(20):
 #     co.send(i)
 
-# co.close()
+# co.close() # 코루틴 종료
 
 ## 코루틴 안에서 예외 발생시키기
 # def sum_coroutine():

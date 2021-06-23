@@ -7,10 +7,10 @@
 #     yield 2
 
 
-# for i in number_generator():
-#     print(i)
+# # for i in number_generator():
+# #     print(i)
 
-# ## 제너레이터 객체가 이터레이터인지 확인
+# # ## 제너레이터 객체가 이터레이터인지 확인
 # g = number_generator()
 # print(g)
 # print(dir(g))
@@ -64,21 +64,21 @@
 #     print(i)
 
 ## yield from에 제너레이터 객체 지정하기
-def number_generator(stop):
-    n = 0
-    while n < stop:
-        yield n
-        n += 1
+# def number_generator(stop):
+#     n = 0
+#     while n < stop:
+#         yield n
+#         n += 1
 
 
-def three_generator():
-    yield from number_generator(3)
+# def three_generator():
+#     yield from number_generator(3)
 
 
-for i in three_generator():
-    print(i)
+# for i in three_generator():
+#     print(i)
 
-## 제너레이터 표현식
+# ## 제너레이터 표현식
 x = (i for i in range(50) if i % 2 == 0)
 
 print(x)

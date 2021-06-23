@@ -1,4 +1,4 @@
-## 이메일 주소 검사하기
+## URL 검사
 import re
 
 p = re.compile("^http[s]*://[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/[a-zA-Z0-9-_/.?=]+")

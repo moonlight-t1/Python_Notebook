@@ -1,4 +1,4 @@
-## 데코레이터 사용하기기
+# ## 데코레이터 사용하기기
 # def trace(func):
 #     def wrapper():
 #         print(func.__name__, "Function Start")
@@ -90,7 +90,7 @@
 # c = Calc()
 # print(c.add(10, 20))
 
-# ## 매개변수가 있는 데코레이터 만들기
+## 매개변수가 있는 데코레이터 만들기
 # def is_multiple(x):  # 데코레이터가 사용할 매개변수 지정
 #     def real_decorator(func):  # 호출할 함수를 매개변수로 받는다
 #         def wrapper(a, b):  # 호출할 함수의 매개변수와 똑같이 지정한다
@@ -123,7 +123,7 @@
 
 # add(10, 20)
 
-# ## 클래스로 데코레이터 만들기
+## 클래스로 데코레이터 만들기
 # class Trace:
 #     def __init__(self, func):
 #         self.func = func
@@ -149,49 +149,49 @@
 # trace_bye = Trace(bye)  # 데코레이터에 호출할 함수를 넣어서 인스턴스 생성
 # trace_bye()
 
-## 클래스로 가변 인수 처리하는 데코레이터 만들기
-class Trace:
-    def __init__(self, func):
-        self.func = func
+# ## 클래스로 가변 인수 처리하는 데코레이터 만들기
+# class Trace:
+#     def __init__(self, func):
+#         self.func = func
 
-    def __call__(self, *args, **kwargs):  # 호출할 함수의 매개변수 처리
-        r = self.func(*args, **kwargs)
-        print(f"{self.func.__name__}(a={args}, b={kwargs}) -> {r}")
-        return r
-
-
-@Trace
-def add(a, b):
-    return a + b
+#     def __call__(self, *args, **kwargs):  # 호출할 함수의 매개변수 처리
+#         r = self.func(*args, **kwargs)
+#         print(f"{self.func.__name__}(a={args}, b={kwargs}) -> {r}")
+#         return r
 
 
-print(add(10, 20))
-print(add(a=10, b=20))
-
-
-## 클래스로 매개변수가 있는 데코레이터 만들기
-# class IsMultiple:
-#     def __init__(self, x):  # 호출할 함수를 인스턴스의 초깃값으로 받음
-#         self.x = x
-
-#     def __call__(self, func):  # 호출할 함수를 매개변수로 받는다
-#         def wrapper(a, b):  # 호출할 함수의 매개변수와 똑같이 지정
-#             r = func(a, b)
-#             if r % self.x == 0:
-#                 print(f"The return value of {func.__name__} is multiple of {self.x}")
-#             else:
-#                 print(
-#                     f"The return value of {func.__name__} is not multiple of {self.x}"
-#                 )
-#             return r
-
-#         return wrapper
-
-
-# @IsMultiple(3)
+# @Trace
 # def add(a, b):
 #     return a + b
 
 
 # print(add(10, 20))
-# print(add(2, 5))
+# print(add(a=10, b=20))
+
+
+## 클래스로 매개변수가 있는 데코레이터 만들기
+class IsMultiple:
+    def __init__(self, x):  # 호출할 함수를 인스턴스의 초깃값으로 받음
+        self.x = x
+
+    def __call__(self, func):  # 호출할 함수를 매개변수로 받는다
+        def wrapper(a, b):  # 호출할 함수의 매개변수와 똑같이 지정
+            r = func(a, b)
+            if r % self.x == 0:
+                print(f"The return value of {func.__name__} is multiple of {self.x}")
+            else:
+                print(
+                    f"The return value of {func.__name__} is not multiple of {self.x}"
+                )
+            return r
+
+        return wrapper
+
+
+@IsMultiple(3)
+def add(a, b):
+    return a + b
+
+
+print(add(10, 20))
+print(add(2, 5))

@@ -10,7 +10,7 @@
 # # print(it.__next__()) # StopIteration Exception
 
 
-## 이터레이터 만들기
+# ## 이터레이터 만들기
 # class Counter:
 #     def __init__(self, stop):
 #         self.current = 0  # 현재 숫자
@@ -52,7 +52,7 @@
 #     print(i, end=" ")
 
 
-## __getitem__ 메서드 사용
+# ## __getitem__ 메서드 사용
 # class CountDown:
 #     def __init__(self, stop):
 #         self.stop = stop
@@ -84,7 +84,7 @@
 # for i in iter(lambda: random.randint(0, 5), 2):
 #     print(i, end=" ")
 
-# next
+## next
 it = iter(range(3))
 
 print(next(it, 10))
