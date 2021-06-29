@@ -8,3 +8,7 @@ print(next(it))
 for i, flavor in enumerate(flavor_list):
     print(f"{i + 1}: {flavor}")
 
+
+# for i, flavor in enumerate(flavor_list, 1):
+#     print(f"{i}: {flavor}")
+
