@@ -1,14 +1,14 @@
 ## 1. try / except
-try:
-    x = int(input("Enter num: "))
-    y = 10 / x
-    print(y)
+# try:
+#     x = int(input("Enter num: "))
+#     y = 10 / x
+#     print(y)
 
-except:  # 모든 예외 처리
-    print("Exception")
+# except:  # 모든 예외 처리
+#     print("Exception")
 
 # 2. 특정 예외만 처리하기
-y = [10, 20, 30]
+# y = [10, 20, 30]
 
 # try:
 #     index, x = map(int, input().split())
@@ -30,17 +30,17 @@ y = [10, 20, 30]
 #     print(y)
 
 ## 4. finally: 예외와는 상관없이 코드 실행
-# y = [10, 20, 30]
+y = [10, 20, 30]
 
-# try:
-#     index, x = map(int, input().split())
-#     print(y[index] / x)
-# except Exception as e:  # 모든 예외 출력
-#     print("Exception:", e)
-# else:  # try의 코드에서 예외가 발생하지 않았을 때 실행된다
-#     print(y)
-# finally:  # 예외와는 상관없이 항상 실행
-#     print("Done")
+try:
+    index, x = map(int, input().split())
+    print(y[index] / x)
+except Exception as e:  # 모든 예외 출력
+    print("Exception:", e)
+else:  # try의 코드에서 예외가 발생하지 않았을 때 실행된다
+    print(y)
+finally:  # 예외와는 상관없이 항상 실행
+    print("Done")
 
 ## 5. raise: 예외 발생하기
 # def add_num(num):
@@ -112,12 +112,13 @@ y = [10, 20, 30]
 
 #     class __NotThreeMutipleError(Exception):  # Exception 상속
 #         def __init__(self):
-#             super().__init__("It is not a mutiple of 3")
+#             super().__init__("It is not a mutiple of 3")  # override
 
 
 # calc = Calculator()
 
 # calc.three_mutiple(10)
+
 
 ## Docstring and Type Annotation
 # def careful_divide(a: float, b: float) -> float:
