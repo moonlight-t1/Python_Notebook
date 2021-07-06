@@ -1,33 +1,33 @@
 ## 1. try / except
-# try:
-#     x = int(input("Enter num: "))
-#     y = 10 / x
-#     print(y)
+try:
+    x = int(input("Enter num: "))
+    y = 10 / x
+    print(y)
 
-# except:  # 모든 예외 처리
-#     print("Exception")
+except:  # 모든 예외 처리
+    print("Exception")
 
 # 2. 특정 예외만 처리하기
-# y = [10, 20, 30]
+y = [10, 20, 30]
 
-# try:
-#     index, x = map(int, input().split())
-#     print(y[index] / x)
-# except ZeroDivisionError:
-#     print("Cannot be divided by 0")
-# except IndexError:
-#     print("Wrong Index")
+try:
+    index, x = map(int, input().split())
+    print(y[index] / x)
+except ZeroDivisionError:
+    print("Cannot be divided by 0")
+except IndexError:
+    print("Wrong Index")
 
 ## 3. else: 예외가 발생하지 않았을 때 코드 실행
-# y = [10, 20, 30]
+y = [10, 20, 30]
 
-# try:
-#     index, x = map(int, input().split())
-#     print(y[index] / x)
-# except Exception as e:  # 모든 예외 출력
-#     print("Exception:", e)
-# else:  # try의 코드에서 예외가 발생하지 않았을 때 실행된다
-#     print(y)
+try:
+    index, x = map(int, input().split())
+    print(y[index] / x)
+except Exception as e:  # 모든 예외 출력
+    print("Exception:", e)
+else:  # try의 코드에서 예외가 발생하지 않았을 때 실행된다
+    print(y)
 
 ## 4. finally: 예외와는 상관없이 코드 실행
 y = [10, 20, 30]
@@ -43,20 +43,20 @@ finally:  # 예외와는 상관없이 항상 실행
     print("Done")
 
 ## 5. raise: 예외 발생하기
-# def add_num(num):
-#     if num < 0:
-#         raise Exception("Num must be greater than 0")
-#     else:
-#         return num + 1
+def add_num(num):
+    if num < 0:
+        raise Exception("Num must be greater than 0")
+    else:
+        return num + 1
 
 
-# try:
-#     x = int(input())
-#     result = add_num(x)
-# except Exception as e:
-#     print("Exception: ", e)
-# else:
-#     print(result)
+try:
+    x = int(input())
+    result = add_num(x)
+except Exception as e:
+    print("Exception: ", e)
+else:
+    print(result)
 
 ## 6. 현재 예외를 다시 발생시키기
 # def three_multiple():
